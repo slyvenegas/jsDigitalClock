@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Digital Clock</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-    <body>
-        <!--Display day information e.g Wednesday March 12,2021-->
-        <div id="dayIntro">
-            <p id="dayName"></p>
-        </div>
-        <div class="container">
-            <!-- Display time -->
-            <div class="dispClock">
-                <div id="time"></div>
-            </div>
-        </div>
-        <script src="index.js"></script>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Digital Clock</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 via-blue-50 to-gray-200 font-inter">
+
+
+  <!-- Digital Clock Container -->
+  <div class="container max-w-sm mt-6 p-6 bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-lg">
+    <!-- Clock Display -->
+    <div id="dispClock" class="rounded-lg bg-gray-50 shadow-inner p-6 text-center">
+      <div id="time" class="text-5xl sm:text-6xl font-bold text-gray-700 tracking-wider">
+        00:00:00
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for updating the time
+    const timeElement = document.getElementById('time');
+    setInterval(() => {
+      const now = new Date();
+      timeElement.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+    }, 1000);
+  </script>
+</body>
 </html>
